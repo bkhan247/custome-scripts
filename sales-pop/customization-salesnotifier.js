@@ -1456,7 +1456,14 @@
      };
  
      window.showSalesPopup = function (popUpIndexToDisplay) {
-        
+       // Block URLs
+        if (Shopify.shop == "the-dan-lok-store.myshopify.com") {
+            if(window.location.href == "https://danlokshop.com/products/dev" || window.location.href == "https://danlokshop.com/products/more-sales-cards"){
+                console.log("Sales popups are blocked on this page.")
+                return;
+            }
+        }
+
          var now = new Date;
          var utc_timestamp = new Date(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() , 
            now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
@@ -1857,11 +1864,10 @@
         } 
         if (Shopify.shop == "petco-world.myshopify.com") {
             selectorTimer1 = $jq321(".sku");
-            console.log(selectorTimer1)
         }      
          if (responseTimer.above_cart == 1) {
              if (selectorTimer1.length == 1) {
-                 $jq321(responseTimer.view).insertAfter(selectorTimer1);
+                 selectorTimer1.prepend(responseTimer.view);
              } else if (selectorTimer2.length == 1) {
                  selectorTimer2.prepend(responseTimer.view);
              } else if (selectorTimer3.length == 1) {
@@ -1875,7 +1881,7 @@
              }
          } else {
              if (selectorTimer1.length == 1) {
-                $jq321(responseTimer.view).insertAfter(selectorTimer1);
+                 selectorTimer1.append(responseTimer.view);
              } else if (selectorTimer2.length == 1) {
                  selectorTimer2.append(responseTimer.view);
              } else if (selectorTimer3.length == 1) {
