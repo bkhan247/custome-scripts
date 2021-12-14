@@ -145,6 +145,12 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
     	customSelector = $jq321(".paymentButtonsWrapper");
     	finalSelector = customSelector[0];
     }
+
+      if(Shopify.shop == "the-cuisinet.myshopify.com"){
+    	customSelector = $jq321(".payment-and-quantity");
+    	finalSelector = customSelector[0];
+    }
+    
     
 
      function stockCountdown(response) {
