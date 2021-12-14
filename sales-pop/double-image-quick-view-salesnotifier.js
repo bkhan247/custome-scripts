@@ -1678,7 +1678,13 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
         '<style type="text/css">.quick-shop-modal{padding-top: 120px !important;} .quick-shop-addtocart button{margin-top: 10px !important; background-color: #Efe7da !important; color: #000 !important;} .sale-sticker{background-color: #Efe7da !important} .view-full-details a{color: #000 !important} .quickshop-quantity input{min-height: 30px  !important; border: 1px solid #Efe7da !important} .quantity-button.quantity-up{border-color: #Efe7da !important;} .quantity-button.quantity-down{border-color: #Efe7da !important;}  </style>'
       );
     }
+    if (Shopify.shop == "goiacl.myshopify.com") {
+      $jq321("head").append(
+        '<style type="text/css">.quick-shop-addtocart button{background-color: #C5858F !important; color: #fff !important;} .sale-sticker{background-color: #C5858F !important; color: #fff !important;} .view-full-details a{color: #C5858F !important} .quickshop-quantity input{ border: 1px solid #C5858F !important} .quantity-button.quantity-up{border-color: #C5858F !important;} .quantity-button.quantity-down{border-color: #C5858F !important;}  </style>'
+      );
+    }
 
+   
     function stockCountdown(responseStock) {
 
         var selectorStock1 = $jq321("form[action='/cart/add']").find("button[type='submit'],input[type='submit']").parent();
@@ -1966,7 +1972,7 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
             $jq321(".quickshop-footer-soldoutall").css("display", "none");
             $jq321(".sale-sticker").html('<span class="sticker-text">Sale</span>');
           }
-
+         
         // STOCK COUNTDOWN CALL
         stockCountdownView(response.stock);
         if (response.timer != false) {
@@ -2061,6 +2067,7 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
             var divCount = 0;
             var linkCount = 0;
             var btnArray = [];
+
             $jq321("main").find('img').each(function () {
 
                 // GET IMAGE URL
@@ -2081,20 +2088,22 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
                     }
 
                     var check = $jq321(this).parent();
-            
-// CREATE DIV
-            var newDiv = '<div id="image-with-button'+divCount+'" class="button-on-hover"></div>';
+                
+                    // CREATE DIV
+                    var newDiv = '<div id="image-with-button'+divCount+'" class="button-on-hover"></div>';
 
-// INSERT DIV
-            $jq321(newDiv).insertBefore(check);
-// APPEND IMAGE IN DIV
-            $jq321(check).appendTo($jq321('#image-with-button'+divCount));
+                    // INSERT DIV
+                    $jq321(newDiv).insertBefore(check);
+                    
+                    // APPEND IMAGE IN DIV
+                    $jq321(check).appendTo($jq321('#image-with-button'+divCount));
 
-// INSERT BUTTON/EYE IN DIV
-                $jq321(btnArray[divCount/2]).insertBefore(this);
-            divCount++;
-            linkCount++;
-        }
+                    // INSERT BUTTON/EYE IN DIV
+                    $jq321(btnArray[divCount/2]).insertBefore(this);
+                
+                    divCount++;
+                    linkCount++;
+                }
             });
         }
     }
