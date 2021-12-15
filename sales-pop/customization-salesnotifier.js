@@ -1753,13 +1753,13 @@
             );
         }        
                
-        if (Shopify.shop == "carsaaz-international.myshopify.com") {
-            masterSelector = $jq321(".sc-hZpJaK");
-            finalSelector = masterSelector[0];
-            
-          }
+           if(Shopify.shop == "carsaaz-international.myshopify.com")
+    {
+    	customSelctor = $jq321(".sc-dwFVFH");
+    	finalSelector = customSelctor[0];
+    }
          
-        console.log(masterSelector)
+
       function stockCountdown(responseStock) {
  
          var selectorStock1 = $jq321("form[action='/cart/add']").find("button[type='submit'],input[type='submit']").parent();
@@ -1772,9 +1772,7 @@
             selectorTimer1 = $jq321(".purchase-details");
           } 
          if (responseStock.above_cart == 1) {
-            if (masterSelector.length > 0) {
-                $jq321(responseStock.view).insertBefore(finalSelector);
-             } else if (selectorStock1.length == 1) {
+             if (selectorStock1.length == 1) {
                  selectorStock1.prepend(responseStock.view);
              } else if (selectorStock2.length == 1) {
                  selectorStock2.prepend(responseStock.view);
@@ -1788,9 +1786,7 @@
                  selectorStock6.prepend(responseStock.view);
              }
          } else {
-            if (masterSelector.length > 0) {
-                $jq321(responseStock.view).insertAfter(finalSelector);
-              } else if (selectorStock1.length == 1) {
+             if (selectorStock1.length == 1) {
                  selectorStock1.append(responseStock.view);
              } else if (selectorStock2.length == 1) {
                  selectorStock2.append(responseStock.view);
@@ -1875,9 +1871,7 @@
             selectorTimer1 = $jq321(".sku");
         }      
          if (responseTimer.above_cart == 1) {
-            if (masterSelector.length > 0) {
-                $jq321(responseTimer.view).insertBefore(finalSelector);
-              } else if (selectorTimer1.length == 1) {
+             if (selectorTimer1.length == 1) {
                  selectorTimer1.prepend(responseTimer.view);
              } else if (selectorTimer2.length == 1) {
                  selectorTimer2.prepend(responseTimer.view);
@@ -1891,9 +1885,7 @@
                  selectorTimer6.prepend(responseTimer.view);
              }
          } else {
-            if (masterSelector.length > 0) {
-                $jq321(responseTimer.view).insertAfter(finalSelector);
-              } else if (selectorTimer1.length == 1) {
+             if (selectorTimer1.length == 1) {
                  selectorTimer1.append(responseTimer.view);
              } else if (selectorTimer2.length == 1) {
                  selectorTimer2.append(responseTimer.view);
@@ -1927,9 +1919,7 @@
             selectorTimer1 = $jq321(".purchase-details");
           } 
          if (response.above_cart == 1) {
-            if (masterSelector.length > 0) {
-                $jq321(response.view).insertBefore(finalSelector);
-              } else if (selectorVisitor1.length == 1) {
+             if (selectorVisitor1.length == 1) {
                  selectorVisitor1.prepend(response.view);
              } else if (selectorVisitor2.length == 1) {
                  selectorVisitor2.prepend(response.view);
@@ -1939,9 +1929,7 @@
                  selectorVisitor4.prepend(response.view);
              }
          } else {
-            if (masterSelector.length > 0) {
-                $jq321(response.view).insertAfter(finalSelector);
-              }else if (selectorVisitor1.length == 1) {
+             if (selectorVisitor1.length == 1) {
                  selectorVisitor1.append(response.view);
              } else if (selectorVisitor2.length == 1) {
                  selectorVisitor2.append(response.view);
@@ -1969,9 +1957,7 @@
           } 
          if (response.above_cart == 1)
          {
-            if (masterSelector.length > 0) {
-                $jq321(response.view).insertBefore(finalSelector);
-              } else if (selectorSold1.length == 1)
+             if (selectorSold1.length == 1)
              {
                  selectorSold1.prepend(response.view);
              }
@@ -1990,9 +1976,7 @@
          }
          else
          {
-            if (masterSelector.length > 0) {
-                $jq321(response.view).insertAfter(finalSelector);
-              } else if (selectorSold1.length == 1)
+             if (selectorSold1.length == 1)
              {
                  selectorSold1.append(response.view);
              }
@@ -2294,12 +2278,20 @@
             var selectorTrustBadges2 = $jq321("form[action='/cart/add']");
             var selectorTrustBadges3 = $jq321("form[action='/cart/add']:first").find("button[type='submit'],input[type='submit']").parent();
             var selectorTrustBadges4 = $jq321("form[action='/cart/add']:first");
+            
             if (Shopify.shop == "chilloutart.myshopify.com") {
                 selectorTrustBadges1 = $jq321(".no-js-hidden");
               }
             if (Shopify.shop == "coco-you.myshopify.com") {
                 selectorTimer1 = $jq321(".purchase-details");
             } 
+
+            if (Shopify.shop == "nxone.myshopify.com") {
+            if(window.location.href == "https://nxone.myshopify.com/"){
+                return;
+            }
+        }
+
             if (selectorTrustBadges1.length == 1)
             {
                 selectorTrustBadges1.append(trustBadgesResponse.view);
