@@ -1398,6 +1398,7 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
     window.showSalesPopup = function (popUpIndexToDisplay) {
     if(window.location.href == "https://ovlcollection.com/pages/sms-club"){console.log("SP are disabled on this Page");return;}
 
+
         var now = new Date;
         var utc_timestamp = new Date(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() , 
           now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
@@ -1538,8 +1539,8 @@ productID = 6816654065873;
 if(Shopify.shop == "concept-baby.myshopify.com"){
 productID = 6978411298991;
 }
-if(Shopify.shop == "techhouse2-0.myshopify.com"){
-productID = 6669180240004;
+if(Shopify.shop == "i-trucchi-di-max.myshopify.com"){
+productID = 7483472183545;
 }
     $jq321.ajax({
         type: "GET",
