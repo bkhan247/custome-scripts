@@ -1227,6 +1227,31 @@
                                     return;
                                 }
                             }
+
+                              if (Shopify.shop == 'destek-offical.myshopify.com') {
+                                var thisStatus = checkStoreSpecificUrlCcSpinASale("https://destek.us/pages/last-big-sale-of-the-year");
+                                //console.log('checkStoreSpecificUrlCcSpinASale Status: ' + thisStatus);
+                                if (thisStatus) {
+                                    console.log('SAS Custom Page Matched for store: ' + Shopify.shop);
+                                }
+                                else {
+                                    console.log('SAS Custom Page NOT Matched for store: ' + Shopify.shop);
+                                    return;
+                                }
+                            }
+
+                              if (Shopify.shop == 'shop-maple-holistics.myshopify.com') {
+                                var thisStatus = checkStoreSpecificUrlCcSpinASale("https://mapleholistics.com/pages/win-a-prize");
+                                //console.log('checkStoreSpecificUrlCcSpinASale Status: ' + thisStatus);
+                                if (thisStatus) {
+                                    console.log('SAS Custom Page Matched for store: ' + Shopify.shop);
+                                }
+                                else {
+                                    console.log('SAS Custom Page NOT Matched for store: ' + Shopify.shop);
+                                    return;
+                                }
+                            }
+
                             /* New custom fixes added from here */
                             if (Shopify.shop == 'tweetprintshop.myshopify.com') {
                                 carecartSpinnerJquery("body").append('<style type="text/css"> .wheelify-content-spinner {background-color: #008affd1 !important;} #wheelify-spin-trigger-cc img {opacity: 1}</style>');
@@ -1241,9 +1266,6 @@
                                 carecartSpinnerJquery("body").append('<style type="text/css">#wheelify-spin_a_sale_cc_store_front_module.wheelify-wrapper-spinner {top: 0;left: 0;transform: translate(calc(50vw - 50%), calc(50vh - 50%));width: 40%;min-width: 700px;height: 63%;} .medium-up--one-quarter {width:15%;} .medium-up--one-half {width:70%;}</style>');
                                 carecartSpinnerJquery(".site-nav").append('<li><a id="wheelify-spin-trigger-2" onclick="displaySpinnerOnTigger()" href="javascript:void(0)" class="site-nav__link site-nav__link--main"><span class="site-nav__label">Spin to Win</span></a></li>');
                                 carecartSpinnerJquery("#wheelify-spin-trigger-cc").css("display", "none");
-                            }
-                            if ("ll4ustore.myshopify.com" == Shopify.shop) {
-                                carecartSpinnerJquery("body").append('<style type="text/css">#cc-spin-a-sale-consent-text{display:flex !important; padding-left:14px !important} .checkbox label  input[type=checkbox]#cc-spin-a-sale-consent-checkbox, .checkbox label  input[type=radio]#cc-spin-a-sale-consent-checkbox{width:auto;height:auto;opacity:1!important;clip:rect(1 0 0 0) !important;z-index:1;}.checkbox input[type=checkbox], .checkbox input[type=radio]{clip:auto !important;}.checkbox label::after{display:none;}</style>');
                             }
 
 
