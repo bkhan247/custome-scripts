@@ -1239,19 +1239,6 @@
                                     return;
                                 }
                             }
-
-                              if (Shopify.shop == 'shop-maple-holistics.myshopify.com') {
-                                var thisStatus = checkStoreSpecificUrlCcSpinASale("https://mapleholistics.com/pages/win-a-prize");
-                                //console.log('checkStoreSpecificUrlCcSpinASale Status: ' + thisStatus);
-                                if (thisStatus) {
-                                    console.log('SAS Custom Page Matched for store: ' + Shopify.shop);
-                                }
-                                else {
-                                    console.log('SAS Custom Page NOT Matched for store: ' + Shopify.shop);
-                                    return;
-                                }
-                            }
-
                             /* New custom fixes added from here */
                             if (Shopify.shop == 'tweetprintshop.myshopify.com') {
                                 carecartSpinnerJquery("body").append('<style type="text/css"> .wheelify-content-spinner {background-color: #008affd1 !important;} #wheelify-spin-trigger-cc img {opacity: 1}</style>');

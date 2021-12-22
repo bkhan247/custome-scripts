@@ -149,6 +149,12 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
         var selectorVisitor3 = $jq321("form[action='/cart/add']:first").find("button[type='submit'],input[type='submit']");
         var selectorVisitor4 = $jq321("form[action='/cart/add']:first");
 
+        
+        if(Shopify.shop == "famhearth-com.myshopify.com"){
+            selectorVisitor1 = $jq321(".giraffly-right-Bar-Preview-Example");
+        } 
+
+
         if (response.above_cart == 1)
         {
             if(customSelctor.length > 0){
