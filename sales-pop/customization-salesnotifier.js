@@ -1764,6 +1764,12 @@
     if (Shopify.shop == "tracilacei.myshopify.com") {
         masterSelector = $jq321(".product-variants ");
         finalSelector = masterSelector[0];
+    } 
+    
+    if (Shopify.shop == "gamers247.myshopify.com") {
+        $jq321("head").append(
+        '<style type="text/css">.notifyjs-corner{margin-bottom: 50px !important}</style>'
+        );
     }    
      console.log(masterSelector)
     
