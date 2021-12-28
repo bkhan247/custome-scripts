@@ -1227,31 +1227,6 @@
                                     return;
                                 }
                             }
-
-                              if (Shopify.shop == 'destek-offical.myshopify.com') {
-                                var thisStatus = checkStoreSpecificUrlCcSpinASale("https://destek.us/pages/last-big-sale-of-the-year");
-                                //console.log('checkStoreSpecificUrlCcSpinASale Status: ' + thisStatus);
-                                if (thisStatus) {
-                                    console.log('SAS Custom Page Matched for store: ' + Shopify.shop);
-                                }
-                                else {
-                                    console.log('SAS Custom Page NOT Matched for store: ' + Shopify.shop);
-                                    return;
-                                }
-                            }
-
-                              if (Shopify.shop == 'shop-maple-holistics.myshopify.com') {
-                                var thisStatus = checkStoreSpecificUrlCcSpinASale("https://mapleholistics.com/pages/win-a-prize");
-                                //console.log('checkStoreSpecificUrlCcSpinASale Status: ' + thisStatus);
-                                if (thisStatus) {
-                                    console.log('SAS Custom Page Matched for store: ' + Shopify.shop);
-                                }
-                                else {
-                                    console.log('SAS Custom Page NOT Matched for store: ' + Shopify.shop);
-                                    return;
-                                }
-                            }
-
                             /* New custom fixes added from here */
                             if (Shopify.shop == 'tweetprintshop.myshopify.com') {
                                 carecartSpinnerJquery("body").append('<style type="text/css"> .wheelify-content-spinner {background-color: #008affd1 !important;} #wheelify-spin-trigger-cc img {opacity: 1}</style>');
@@ -1268,7 +1243,22 @@
                                 carecartSpinnerJquery("#wheelify-spin-trigger-cc").css("display", "none");
                             }
 
+                            if ("atstoreromania.myshopify.com" == Shopify.shop) {
+                                carecartSpinnerJquery("body").append('<style type="text/css">#cc-spin-a-sale-consent-text{display:flex !important; padding-left:14px !important} .checkbox label  input[type=checkbox]#cc-spin-a-sale-consent-checkbox, .checkbox label  input[type=radio]#cc-spin-a-sale-consent-checkbox{width:auto;height:auto;opacity:1!important;clip:rect(1 0 0 0) !important;z-index:1;}.checkbox input[type=checkbox], .checkbox input[type=radio]{clip:auto !important;}.checkbox label::after{display:none;}</style>');
+                            }
+                            if ("atstoregreece.myshopify.com" == Shopify.shop) {
+                                carecartSpinnerJquery("body").append('<style type="text/css">#cc-spin-a-sale-consent-text{display:flex !important; padding-left:14px !important} .checkbox label  input[type=checkbox]#cc-spin-a-sale-consent-checkbox, .checkbox label  input[type=radio]#cc-spin-a-sale-consent-checkbox{width:auto;height:auto;opacity:1!important;clip:rect(1 0 0 0) !important;z-index:1;}.checkbox input[type=checkbox], .checkbox input[type=radio]{clip:auto !important;}.checkbox label::after{display:none;}</style>');
+                            }
 
+                            if("almowear.myshopify.com" == Shopify.shop){
+                                carecartSpinnerJquery(".wheelify-closeButton").click(function(){
+                                    carecartSpinnerJquery("body").append('<style type="text/css">.wheelify-wrapper-spinner {display: none}</script>');
+                                }) 
+                                carecartSpinnerJquery("#wheelify-spin-trigger-cc").click(function(){
+                                    carecartSpinnerJquery("body").append('<style type="text/css">.wheelify-wrapper-spinner {display: block}</script>');
+                                })
+                            }
+                            
                             //****************************************** End - Allow Spinner on ONLY Specific URL ******************************
                             //console.log('response.records.store_settings.settings_data.display_home_page_enabled: ' + response.records.store_settings.settings_data.display_home_page_enabled);
                             //console.log('response.records.store_settings.settings_data.display_collections_page_enabled: ' + response.records.store_settings.settings_data.display_collections_page_enabled);
