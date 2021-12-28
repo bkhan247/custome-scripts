@@ -1770,6 +1770,11 @@
         $jq321("head").append(
         '<style type="text/css">.notifyjs-corner{margin-bottom: 50px !important}</style>'
         );
+    }  
+    if (Shopify.shop == "eaurave.myshopify.com") {
+        $jq321("head").append(
+        '<style type="text/css">.notifyjs-corner{margin-bottom: 90px !important}</style>'
+        );
     }    
      console.log(masterSelector)
     
