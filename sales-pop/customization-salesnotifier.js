@@ -1295,7 +1295,7 @@
              if (apiResponse && apiResponse.quickViewCollection && apiResponse.quickViewCollection == 1)
              {
                  setTimeout(function () {
- // PRODUCT QUICK VIEW FOR COLLECTION PAGES
+            // PRODUCT QUICK VIEW FOR COLLECTION PAGES
                      collectionQuickView(apiResponse.quickViewCollectionText, apiResponse.quickViewCollectionLayout, apiResponse.quickViewCollectionPosition);
                  }, 3000);
              }
@@ -1779,6 +1779,9 @@
     if (Shopify.shop == "mm-active.myshopify.com") {
         masterSelector = $jq321(".group-action");
         finalSelector = masterSelector[0];
+        $jq321("head").append(
+            '<style type="text/css">.card-title:before{width: 0px !important}</style>'
+            );
     }   
      console.log(masterSelector)
     
@@ -2173,13 +2176,15 @@
          {
              var allLinks = [];
              var product_id = (meta.product && meta.product.id) ? meta.product.id : '';
- 
+            var selectorQuickview = '';
              if (product_id == '')
              {
-                 $jq321("a").each(function() {
+                if(Shopify.shop === "mm-active.myshopify.com"){
+                    selectorQuickview = $jq321("main-collection-product-grid")
+                }
+                selectorQuickview.each(function() {
                      var href = $jq321(this).attr('href');
                      var url = href.split("/");
- 
                      if ($jq321.inArray("products", url) != -1)
                      {
                          allLinks.push(href);
@@ -2187,8 +2192,12 @@
                  });
              }
              else
-             {
-                 $jq321("a").each(function() {
+             {  
+                 if(Shopify.shop === "mm-active.myshopify.com"){
+                     
+                     selectorQuickview = $jq321("main-collection-product-grid")
+                 }
+                 selectorQuickview.each(function() {
                      var href = $jq321(this).attr('href');
                      var url = href.split("/");
                      if ($jq321.inArray("products", url) != -1)
@@ -2202,7 +2211,7 @@
                      }
                  });
              }
- 
+             console.log(selectorQuickview);
          // PRODUCT QUICK VIEW COLLECTION CREATE BUTTON
              var divCount = 0;
              var linkCount = 0;
