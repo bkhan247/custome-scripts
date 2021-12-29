@@ -138,7 +138,11 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
     	customSelctor = $jq321(".modal_price");
     	finalSelector = customSelctor[0];
     }
-    
+   
+    if (Shopify.shop == "onlysidehustle1.myshopify.com") {
+        customSelctor = $jq321(".styles_flex__THHhI");
+        finalSelector = customSelctor[0];
+    }  
 
     console.log(customSelctor);
 
@@ -148,12 +152,6 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
         var selectorVisitor2 = $jq321("form[action='/cart/add']");
         var selectorVisitor3 = $jq321("form[action='/cart/add']:first").find("button[type='submit'],input[type='submit']");
         var selectorVisitor4 = $jq321("form[action='/cart/add']:first");
-
-        
-        if(Shopify.shop == "famhearth-com.myshopify.com"){
-            selectorVisitor1 = $jq321(".giraffly-right-Bar-Preview-Example");
-        } 
-
 
         if (response.above_cart == 1)
         {

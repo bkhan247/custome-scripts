@@ -1775,7 +1775,11 @@
         $jq321("head").append(
         '<style type="text/css">.notifyjs-corner{margin-bottom: 90px !important}</style>'
         );
-    }    
+    }  
+    if (Shopify.shop == "mm-active.myshopify.com") {
+        masterSelector = $jq321(".group-action");
+        finalSelector = masterSelector[0];
+    }   
      console.log(masterSelector)
     
       function stockCountdown(responseStock) {
