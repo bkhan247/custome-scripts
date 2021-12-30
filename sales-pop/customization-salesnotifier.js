@@ -1775,13 +1775,10 @@
         $jq321("head").append(
         '<style type="text/css">.notifyjs-corner{margin-bottom: 90px !important}</style>'
         );
-    }  
-    if (Shopify.shop == "mm-active.myshopify.com") {
-        masterSelector = $jq321(".group-action");
+    }     
+    if (Shopify.shop == "sheopal-s.myshopify.com") {
+        masterSelector = $jq321(".paymentButtonsWrapper");
         finalSelector = masterSelector[0];
-        $jq321("head").append(
-            '<style type="text/css">.card-title:before{width: 0px !important}</style>'
-            );
     }   
      console.log(masterSelector)
     
@@ -2176,7 +2173,7 @@
          {
              var allLinks = [];
              var product_id = (meta.product && meta.product.id) ? meta.product.id : '';
-            var selectorQuickview = '';
+            var selectorQuickview = $jq321('a');
              if (product_id == '')
              {
                 if(Shopify.shop === "mm-active.myshopify.com"){
