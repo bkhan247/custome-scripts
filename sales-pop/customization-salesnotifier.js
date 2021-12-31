@@ -1779,6 +1779,7 @@
     if (Shopify.shop == "sheopal-s.myshopify.com") {
         masterSelector = $jq321(".paymentButtonsWrapper");
         finalSelector = masterSelector[0];
+
     }   
      console.log(masterSelector)
     
@@ -1940,7 +1941,6 @@
          var selectorVisitor2 = $jq321("form[action='/cart/add']");
          var selectorVisitor3 = $jq321("form[action='/cart/add']:first").find("button[type='submit'],input[type='submit']").parent();
          var selectorVisitor4 = $jq321("form[action='/cart/add']:first");
- 
          if (response.above_cart == 1) {
             if (masterSelector.length > 0) {
                 $jq321(response.view).insertBefore(finalSelector);
@@ -1966,10 +1966,13 @@
                  selectorVisitor4.append(response.view);
              }
          }
- 
+         if (Shopify.shop == "sheopal-s.myshopify.com") {
+            $jq321(".fa-eye").html("&#xf06e;");
+        }  
          $jq321('m').html(function (i, v) {
              return v.replace(/(\d)/g, '<span ' + response.count + '>$1</span>');
          });
+
      }
  // ---------------------------------- <VISITOR COUNTER MODULE> --------------------------------
  
