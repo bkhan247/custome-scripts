@@ -145,11 +145,15 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
     	customSelector = $jq321(".paymentButtonsWrapper");
     	finalSelector = customSelector[0];
     }
-    if(Shopify.shop == "rowse-beauty.myshopify.com"){
-    	customSelector = $jq321(".btn-mar-top");
-    	finalSelector = customSelector[0];
-    }
-    console.log("check", customSelector);
+
+
+    if (Shopify.shop == "facciobusiness222.myshopify.com") {
+        customSelector = $jq321(".purchase-details");
+        finalSelector = customSelector[0];
+        console.log(customSelector);
+    }    
+
+    
 
      function stockCountdown(response) {
          
