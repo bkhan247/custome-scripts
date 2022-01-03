@@ -1672,13 +1672,6 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
         $jq321("head").append('<style type="text/css">.quick-shop-modal{top: 100px !important;} .quick-shop-addtocart button{margin-top: 20px !important; background-color: #C3aa94 !important} .quickshop-quantity input{min-height: 30px  !important; border: 1px solid #C3aa94 !important} .view-full-details a{color: #C3aa94 !important} .quantity-button.quantity-up{border-color: #C3aa94 !important;} .quantity-button.quantity-down{border-color: #C3aa94 !important;}  </style>');
     }
 
-
-    if (Shopify.shop == "lady-lash.myshopify.com") {
-      $jq321("head").append(
-        '<style type="text/css">.quick-shop-modal{padding-top: 120px !important;} .quick-shop-addtocart button{margin-top: 10px !important; background-color: #Efe7da !important; color: #000 !important;} .sale-sticker{background-color: #Efe7da !important} .view-full-details a{color: #000 !important} .quickshop-quantity input{min-height: 30px  !important; border: 1px solid #Efe7da !important} .quantity-button.quantity-up{border-color: #Efe7da !important;} .quantity-button.quantity-down{border-color: #Efe7da !important;}  </style>'
-      );
-    }
-
     function stockCountdown(responseStock) {
 
         var selectorStock1 = $jq321("form[action='/cart/add']").find("button[type='submit'],input[type='submit']").parent();
@@ -1961,12 +1954,6 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
         var selector = $jq321(".quick-shop-popup-container");
         selector.append(response.quick);
 
-        if (Shopify.shop == "whopcart.myshopify.com") { 
-            $jq321(".quickshop-footer").css("display", "block");
-            $jq321(".quickshop-footer-soldoutall").css("display", "none");
-            $jq321(".sale-sticker").html('<span class="sticker-text">Sale</span>');
-          }
-
         // STOCK COUNTDOWN CALL
         stockCountdownView(response.stock);
         if (response.timer != false) {
@@ -2074,18 +2061,20 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
                     if (quickViewCollectionLayout == 2) {
                         // FOR QUICK VIEW BUTTON
                         var newButton = '<input type="button" class="quick-view collection-quick-view" value="' + quickViewCollectionText + '" data-product-url="' + allLinks[linkCount] + '" data-quick-view="1">';
+                        
                     }
                     else if (quickViewCollectionLayout == 1) {
-                        // FOR QUICK VIEW EYE
+                        // FOR QUICK VIEW EYE\
                         var newButton = '<a id="positon-right" class="EyeViewBtn collection-quick-view ' + quickViewCollectionPosition + '" data-product-url="' + allLinks[linkCount] + '" data-quick-view="1" href="#"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="577.029px" height="577.029px" viewBox="0 0 577.029 577.029" style="enable-background:new 0 0 577.029 577.029;" xml:space="preserve"><path d="M288.514,148.629c73.746,0,136.162,33.616,175.539,61.821c46.652,33.415,70.66,65.737,76.885,78.065   c-6.232,12.327-30.232,44.649-76.885,78.065c-39.377,28.204-101.793,61.82-175.539,61.82c-73.746,0-136.161-33.616-175.539-61.82   c-46.661-33.416-70.66-65.738-76.894-78.065c6.234-12.328,30.233-44.65,76.885-78.065   C152.353,182.245,214.768,148.629,288.514,148.629 M288.514,113.657C129.176,113.657,0,253.543,0,288.515   s129.176,174.857,288.514,174.857c159.339,0,288.515-139.886,288.515-174.857S447.854,113.657,288.514,113.657L288.514,113.657z    M288.514,183.601c-57.939,0-104.914,46.975-104.914,104.914c0,57.938,46.975,104.914,104.914,104.914   s104.914-46.976,104.914-104.914C393.428,230.576,346.453,183.601,288.514,183.601z M260.266,288.515   c-24.515,0-44.388-19.873-44.388-44.388c0-24.515,19.873-44.387,44.388-44.387c24.515,0,44.388,19.873,44.388,44.387   C304.654,268.642,284.781,288.515,260.266,288.515z"/></svg></a>';
                     }
+
 
                     var check = $jq321(this).parent();
 
                     // CREATE DIV
                     var newDiv = '<div id="image-with-button' + divCount + '" class="button-on-hover"></div>';
-
                     var checkButton=check.find('.collection-quick-view');
+
                     if (checkButton.length < 1)
                     {
                         // INSERT DIV
@@ -2093,11 +2082,12 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
 
                         // APPEND IMAGE IN DIV
                         $jq321(check).appendTo($jq321('#image-with-button' + divCount));
+                      
 
                         // INSERT BUTTON/EYE IN DIV
                         $jq321(newButton).insertBefore(this);
                     }
-
+                    
                     divCount++;
                     linkCount++;
                 }
