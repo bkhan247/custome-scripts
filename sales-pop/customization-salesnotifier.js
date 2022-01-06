@@ -1295,7 +1295,7 @@
              if (apiResponse && apiResponse.quickViewCollection && apiResponse.quickViewCollection == 1)
              {
                  setTimeout(function () {
-            // PRODUCT QUICK VIEW FOR COLLECTION PAGES
+ // PRODUCT QUICK VIEW FOR COLLECTION PAGES
                      collectionQuickView(apiResponse.quickViewCollectionText, apiResponse.quickViewCollectionLayout, apiResponse.quickViewCollectionPosition);
                  }, 3000);
              }
@@ -1762,27 +1762,18 @@
     }  
    
     if (Shopify.shop == "tracilacei.myshopify.com") {
-        masterSelector = $jq321(".product-variants ");
+        masterSelector = $jq321(".product-variants");
         finalSelector = masterSelector[0];
-    } 
-    
-    if (Shopify.shop == "gamers247.myshopify.com") {
+    }    
+
+     if (Shopify.shop == "thefallout.myshopify.com") {
         $jq321("head").append(
-        '<style type="text/css">.notifyjs-corner{margin-bottom: 50px !important}</style>'
+        '<style type="text/css"> #CloneBox {flex-wrap: nowrap !important;}</style>'
         );
     }  
-    if (Shopify.shop == "eaurave.myshopify.com") {
-        $jq321("head").append(
-        '<style type="text/css">.notifyjs-corner{margin-bottom: 90px !important}</style>'
-        );
-    }     
-    if (Shopify.shop == "sheopal-s.myshopify.com") {
-        masterSelector = $jq321(".paymentButtonsWrapper");
-        finalSelector = masterSelector[0];
 
-    }   
-     console.log(masterSelector)
-    
+   
+
       function stockCountdown(responseStock) {
  
          var selectorStock1 = $jq321("form[action='/cart/add']").find("button[type='submit'],input[type='submit']").parent();
@@ -1941,6 +1932,7 @@
          var selectorVisitor2 = $jq321("form[action='/cart/add']");
          var selectorVisitor3 = $jq321("form[action='/cart/add']:first").find("button[type='submit'],input[type='submit']").parent();
          var selectorVisitor4 = $jq321("form[action='/cart/add']:first");
+ 
          if (response.above_cart == 1) {
             if (masterSelector.length > 0) {
                 $jq321(response.view).insertBefore(finalSelector);
@@ -1966,13 +1958,10 @@
                  selectorVisitor4.append(response.view);
              }
          }
-         if (Shopify.shop == "sheopal-s.myshopify.com") {
-            $jq321(".fa-eye").html("&#xf06e;");
-        }  
+ 
          $jq321('m').html(function (i, v) {
              return v.replace(/(\d)/g, '<span ' + response.count + '>$1</span>');
          });
-
      }
  // ---------------------------------- <VISITOR COUNTER MODULE> --------------------------------
  
@@ -2176,15 +2165,13 @@
          {
              var allLinks = [];
              var product_id = (meta.product && meta.product.id) ? meta.product.id : '';
-            var selectorQuickview = $jq321('a');
+ 
              if (product_id == '')
              {
-                if(Shopify.shop === "mm-active.myshopify.com"){
-                    selectorQuickview = $jq321("main-collection-product-grid")
-                }
-                selectorQuickview.each(function() {
+                 $jq321("a").each(function() {
                      var href = $jq321(this).attr('href');
                      var url = href.split("/");
+ 
                      if ($jq321.inArray("products", url) != -1)
                      {
                          allLinks.push(href);
@@ -2192,12 +2179,8 @@
                  });
              }
              else
-             {  
-                 if(Shopify.shop === "mm-active.myshopify.com"){
-                     
-                     selectorQuickview = $jq321("main-collection-product-grid")
-                 }
-                 selectorQuickview.each(function() {
+             {
+                 $jq321("a").each(function() {
                      var href = $jq321(this).attr('href');
                      var url = href.split("/");
                      if ($jq321.inArray("products", url) != -1)
@@ -2211,7 +2194,7 @@
                      }
                  });
              }
-             console.log(selectorQuickview);
+ 
          // PRODUCT QUICK VIEW COLLECTION CREATE BUTTON
              var divCount = 0;
              var linkCount = 0;
