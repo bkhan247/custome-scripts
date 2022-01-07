@@ -153,8 +153,8 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
         console.log(customSelector);
     }    
  if (Shopify.shop == "the-bella-cottage-inc.myshopify.com") {
-        customSelector = $jq321(".input-row");
-        finalSelector = customSelector[5];
+        customSelector = $jq321(".ruk_rating_snippet");
+        finalSelector = customSelector[0];
         console.log(customSelector);
     }    
 
