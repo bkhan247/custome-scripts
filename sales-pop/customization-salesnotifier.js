@@ -1784,9 +1784,24 @@
         $jq321("head").append(
         '<style type="text/css">.stock-progress-foreground{width: 30% !important}</style>'
         );
+    }
+    if (Shopify.shop == "thefallout.myshopify.com") {
+        masterSelector = $jq321(".description");
+        finalSelector = masterSelector[0];
+        $jq321("head").append(
+            '<style type="text/css"> #CloneBox {flex-wrap: nowrap !important;}</style>'
+        );
+    }  
+    if (Shopify.shop == "adetoyinspalace.myshopify.com") {
+        masterSelector = $jq321(".product-form__quantity-submit");
+        finalSelector = masterSelector[0];
+        $jq321("head").append(
+            '<style type="text/css"> .icon-specific-text-carecartbysalespop-2020 {display: inline !important;}</style>'
+            );
     } 
+    
 
-     console.log(masterSelector)
+    console.log(masterSelector);
     
       function stockCountdown(responseStock) {
  
@@ -2316,8 +2331,11 @@
             var selectorTrustBadges2 = $jq321("form[action='/cart/add']");
             var selectorTrustBadges3 = $jq321("form[action='/cart/add']:first").find("button[type='submit'],input[type='submit']").parent();
             var selectorTrustBadges4 = $jq321("form[action='/cart/add']:first");
-     
-            if (selectorTrustBadges1.length == 1)
+            
+            if(masterSelector.length == 1){
+                masterSelector.append(trustBadgesResponse.view);
+            }
+            else if (selectorTrustBadges1.length == 1)
             {
                 selectorTrustBadges1.append(trustBadgesResponse.view);
             }
