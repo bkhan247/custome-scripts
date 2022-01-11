@@ -1786,11 +1786,13 @@
         $jq321("head").append(
             '<style type="text/css"> .timer-store-front {margin-top: 10px !important;}</style>'
             );
+}  
 
-    }  
 
-    console.log(masterSelector);
-
+if (Shopify.shop == "naptural-queen-hair-care.myshopify.com") {
+    masterSelector = $jq321(".groups-btn");
+    finalSelector = masterSelector[0];
+}  
    
    
 
