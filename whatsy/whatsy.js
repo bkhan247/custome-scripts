@@ -7,7 +7,7 @@
  * Any unauthorized use and distribution of this and related files, is strictly forbidden.
  * In case of any inquiries, please contact here: https://carecart.io/contact-us/
  */
-//
+
  function scriptInjection(src, callback) {
 	let script = document.createElement('script');
 	script.type = "text/javascript";
@@ -38,7 +38,15 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
 	let dialogue;
 	let greetingWidgetOption;
 
+	//custom fix 
+
+	if(Shopify.shop == "twisted-cards.myshopify.com") {
+		carecartWhatsApp("head").append(
+            '<style type="text/css"> .share-widget-custom-right {z-index: 20 !important;}</style>'
+            );
+	}
 	/** ends **/
+
 
 	window.whatsAppChat = function (response) {
 		apiResponse = response;
@@ -47,11 +55,6 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
 
 		/* Chat widget */
 		if (settings[0].status == 1 && response.chatAgents.length != 0) {
-            /* Custom fix starts from here */
-            if(Shopify.shop == "vida-de-perro-v2.myshopify.com"){
-                carecartWhatsApp("head").append('<style type="text/css">.wa-chatbox-avatar{display: block !important}.wa-chat-btn-icon-image-only{display: block !important}</style>');
-            }
-            /* Custom fix ends */
 			carecartWhatsApp("body").append(response.chatWidget.icon);
 			carecartWhatsApp("body").append(response.chatWidget.widget);
 			carecartWhatsApp('#chat-box').hide();
