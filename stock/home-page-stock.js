@@ -115,6 +115,9 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
     if(Shopify.shop == "cian-o-regan-photography.myshopify.com"){
         productID = 6640241737859;
     }
+    if(Shopify.shop == "physio-body.myshopify.com"){
+        productID = 7464242381054;
+    }
 
     $jq321.ajax({
         type: "GET",
