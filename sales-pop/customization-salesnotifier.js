@@ -1295,7 +1295,7 @@
              if (apiResponse && apiResponse.quickViewCollection && apiResponse.quickViewCollection == 1)
              {
                  setTimeout(function () {
- // PRODUCT QUICK VIEW FOR COLLECTION PAGES
+            // PRODUCT QUICK VIEW FOR COLLECTION PAGES
                      collectionQuickView(apiResponse.quickViewCollectionText, apiResponse.quickViewCollectionLayout, apiResponse.quickViewCollectionPosition);
                  }, 3000);
              }
@@ -1762,40 +1762,55 @@
     }  
    
     if (Shopify.shop == "tracilacei.myshopify.com") {
-        masterSelector = $jq321(".product-variants");
+        masterSelector = $jq321(".product-variants ");
         finalSelector = masterSelector[0];
-    }    
-
-     if (Shopify.shop == "thefallout.myshopify.com") {
+    } 
+    
+    if (Shopify.shop == "gamers247.myshopify.com") {
         $jq321("head").append(
-        '<style type="text/css"> #CloneBox {flex-wrap: nowrap !important;}</style>'
+        '<style type="text/css">.notifyjs-corner{margin-bottom: 50px !important}</style>'
         );
-   
     }  
-
+    if (Shopify.shop == "eaurave.myshopify.com") {
+        $jq321("head").append(
+        '<style type="text/css">.notifyjs-corner{margin-bottom: 90px !important}</style>'
+        );
+    }     
+    if (Shopify.shop == "sheopal-s.myshopify.com") {
+        masterSelector = $jq321(".paymentButtonsWrapper");
+        finalSelector = masterSelector[0];
+    }  
+    if (Shopify.shop == "mount-2.myshopify.com") {
+        $jq321("head").append(
+        '<style type="text/css">.stock-progress-foreground{width: 30% !important}</style>'
+        );
+    }
+    if (Shopify.shop == "thefallout.myshopify.com") {
+        masterSelector = $jq321(".description");
+        finalSelector = masterSelector[0];
+        $jq321("head").append(
+            '<style type="text/css"> #CloneBox {flex-wrap: nowrap !important;}</style>'
+        );
+    }  
     if (Shopify.shop == "adetoyinspalace.myshopify.com") {
         masterSelector = $jq321(".product-form__quantity-submit");
         finalSelector = masterSelector[0];
         $jq321("head").append(
             '<style type="text/css"> .icon-specific-text-carecartbysalespop-2020 {display: inline !important;}</style>'
             );
-
-    }   
-
-    if (Shopify.shop == "winssysilk.myshopify.com") {
+    } 
+    if (Shopify.shop == "compact-studios.myshopify.com") {
         $jq321("head").append(
-            '<style type="text/css"> .timer-store-front {margin-top: 10px !important;}</style>'
-            );
-}  
+          '<style type="text/css"> .sale-sticker{background-color: #7A8BC1 !important; color: #fff !important;} .quick-shop-title a{color: #7A8BC1 !important;} .quick-shop-current-price{color: #000 !important;} .quick-shop-was-price{color: #9DA5B3 !important;} .view-full-details a{color: #000 !important}  .quick-product-size-opt span{color: #000 !important} .quick-product-size-opt .radio-toolbar label{margin: 3px !important} .quickshop-quantity input{ border: 1px solid #7A8BC1 !important} .quantity-button.quantity-up{border-color: #7A8BC1 !important;} .quantity-button.quantity-down{border-color: #7A8BC1 !important;} .quick-shop-addtocart button{background-color: #7A8BC1 !important; color: #fff !important;} </style>'
+        );
+    }
+    if (Shopify.shop == "azzalin-bozz.myshopify.com") {
+        masterSelector = $jq321(".groups-btn");
+        finalSelector = masterSelector[0];
+    } 
 
-
-if (Shopify.shop == "naptural-queen-hair-care.myshopify.com") {
-    masterSelector = $jq321(".groups-btn");
-    finalSelector = masterSelector[0];
-}  
-   
-   
-
+    console.log(masterSelector);
+    
       function stockCountdown(responseStock) {
  
          var selectorStock1 = $jq321("form[action='/cart/add']").find("button[type='submit'],input[type='submit']").parent();
@@ -1954,7 +1969,6 @@ if (Shopify.shop == "naptural-queen-hair-care.myshopify.com") {
          var selectorVisitor2 = $jq321("form[action='/cart/add']");
          var selectorVisitor3 = $jq321("form[action='/cart/add']:first").find("button[type='submit'],input[type='submit']").parent();
          var selectorVisitor4 = $jq321("form[action='/cart/add']:first");
- 
          if (response.above_cart == 1) {
             if (masterSelector.length > 0) {
                 $jq321(response.view).insertBefore(finalSelector);
@@ -1980,10 +1994,13 @@ if (Shopify.shop == "naptural-queen-hair-care.myshopify.com") {
                  selectorVisitor4.append(response.view);
              }
          }
- 
+         if (Shopify.shop == "sheopal-s.myshopify.com") {
+            $jq321(".fa-eye").html("&#xf06e;");
+        }  
          $jq321('m').html(function (i, v) {
              return v.replace(/(\d)/g, '<span ' + response.count + '>$1</span>');
          });
+
      }
  // ---------------------------------- <VISITOR COUNTER MODULE> --------------------------------
  
@@ -2187,13 +2204,15 @@ if (Shopify.shop == "naptural-queen-hair-care.myshopify.com") {
          {
              var allLinks = [];
              var product_id = (meta.product && meta.product.id) ? meta.product.id : '';
- 
+            var selectorQuickview = $jq321('a');
              if (product_id == '')
              {
-                 $jq321("a").each(function() {
+                if(Shopify.shop === "mm-active.myshopify.com"){
+                    selectorQuickview = $jq321("main-collection-product-grid")
+                }
+                selectorQuickview.each(function() {
                      var href = $jq321(this).attr('href');
                      var url = href.split("/");
- 
                      if ($jq321.inArray("products", url) != -1)
                      {
                          allLinks.push(href);
@@ -2201,8 +2220,11 @@ if (Shopify.shop == "naptural-queen-hair-care.myshopify.com") {
                  });
              }
              else
-             {
-                 $jq321("a").each(function() {
+             {  
+                 if(Shopify.shop === "mm-active.myshopify.com"){ 
+                    selectorQuickview = $jq321("main-collection-product-grid")
+                 }
+                 selectorQuickview.each(function() {
                      var href = $jq321(this).attr('href');
                      var url = href.split("/");
                      if ($jq321.inArray("products", url) != -1)
@@ -2216,7 +2238,7 @@ if (Shopify.shop == "naptural-queen-hair-care.myshopify.com") {
                      }
                  });
              }
- 
+             console.log(selectorQuickview);
          // PRODUCT QUICK VIEW COLLECTION CREATE BUTTON
              var divCount = 0;
              var linkCount = 0;
@@ -2239,7 +2261,6 @@ if (Shopify.shop == "naptural-queen-hair-care.myshopify.com") {
                      {
          // FOR QUICK VIEW EYE
                          var newButton = '<a id="positon-right" class="EyeViewBtn collection-quick-view ' + quickViewCollectionPosition + '" data-product-url="' + allLinks[linkCount] + '" data-quick-view="1" href="#"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="577.029px" height="577.029px" viewBox="0 0 577.029 577.029" style="enable-background:new 0 0 577.029 577.029;" xml:space="preserve"><path d="M288.514,148.629c73.746,0,136.162,33.616,175.539,61.821c46.652,33.415,70.66,65.737,76.885,78.065   c-6.232,12.327-30.232,44.649-76.885,78.065c-39.377,28.204-101.793,61.82-175.539,61.82c-73.746,0-136.161-33.616-175.539-61.82   c-46.661-33.416-70.66-65.738-76.894-78.065c6.234-12.328,30.233-44.65,76.885-78.065   C152.353,182.245,214.768,148.629,288.514,148.629 M288.514,113.657C129.176,113.657,0,253.543,0,288.515   s129.176,174.857,288.514,174.857c159.339,0,288.515-139.886,288.515-174.857S447.854,113.657,288.514,113.657L288.514,113.657z    M288.514,183.601c-57.939,0-104.914,46.975-104.914,104.914c0,57.938,46.975,104.914,104.914,104.914   s104.914-46.976,104.914-104.914C393.428,230.576,346.453,183.601,288.514,183.601z M260.266,288.515   c-24.515,0-44.388-19.873-44.388-44.388c0-24.515,19.873-44.387,44.388-44.387c24.515,0,44.388,19.873,44.388,44.387   C304.654,268.642,284.781,288.515,260.266,288.515z"/></svg></a>';
- 
                      }
  
                      var check = $jq321(this).parent();
@@ -2318,9 +2339,11 @@ if (Shopify.shop == "naptural-queen-hair-care.myshopify.com") {
             var selectorTrustBadges2 = $jq321("form[action='/cart/add']");
             var selectorTrustBadges3 = $jq321("form[action='/cart/add']:first").find("button[type='submit'],input[type='submit']").parent();
             var selectorTrustBadges4 = $jq321("form[action='/cart/add']:first");
-
             
-            if (selectorTrustBadges1.length == 1)
+            if(masterSelector.length == 1){
+                masterSelector.append(trustBadgesResponse.view);
+            }
+            else if (selectorTrustBadges1.length == 1)
             {
                 selectorTrustBadges1.append(trustBadgesResponse.view);
             }
