@@ -120,6 +120,10 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
         productID = 7197491462300;
     }
 
+    if(Shopify.shop == "samraatthreads.myshopify.com"){
+        productID = 7377156440233;
+    }
+console.log("hewllo")
     $jq321.ajax({
         type: "GET",
         url: salespoplib_vars_obj.backend_url + 'checkStore/',
