@@ -117,7 +117,7 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
     }
 
     if(Shopify.shop == "fancybeauty-com.myshopify.com"){
-        productID = 7195702067356;
+        productID = 7197491462300;
     }
 
     $jq321.ajax({
