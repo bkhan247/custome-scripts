@@ -1808,9 +1808,18 @@
         masterSelector = $jq321(".groups-btn");
         finalSelector = masterSelector[0];
     } 
+    if (Shopify.shop == "riverviewhomeware.myshopify.com") 
+    {
+        if (salespoplib_vars_obj.checkDevice == 'mobile')
+        {
+            $jq321("head").append('<style type="text/css">.notifyjs-corner{margin-bottom: 70px !important}</style>');
+        }
+        else
+        {
+            $jq321("head").append('<style type="text/css">.notifyjs-corner{margin-bottom: 85px !important}</style>');
+        }
+    }
 
-    console.log(masterSelector);
-    
       function stockCountdown(responseStock) {
  
          var selectorStock1 = $jq321("form[action='/cart/add']").find("button[type='submit'],input[type='submit']").parent();
