@@ -9,7 +9,7 @@
  * In case of any inquiries, please contact here: https://carecart.io/contact-us/
  */
 
-function scriptInjection(src, callback) {
+ function scriptInjection(src, callback) {
     var script = document.createElement('script');
     script.type = "text/javascript";
 
@@ -144,6 +144,12 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
     if(Shopify.shop == "sheopal-s.myshopify.com"){
     	customSelector = $jq321(".paymentButtonsWrapper");
     	finalSelector = customSelector[0];
+    }
+    if(Shopify.shop == "rowse-beauty.myshopify.com"){
+    	customSelector = $jq321(".btn-mar-top");
+    	finalSelector = customSelector[0];
+
+        $jq321("head").append('<style type="text/css">.timer-store-front{margin-top: 14px; !important}</style>');
     }
 
 
