@@ -1180,6 +1180,22 @@
  
          $jq321("body").append(statsHtml);
      };
+
+     var blockSpecificPage = function () {
+
+        var block_url = window.location.pathname.split("/");
+
+        var block_url_store = window.location.origin + '/' + block_url[1] + '/' + block_url[2] + '/';
+                
+        var b_url = true;
+        if (block_url_store == 'https://ellusionist.com/apps/downloads/')
+        {
+            b_url = false;
+        }
+
+        return b_url;
+
+     };
  
      window.checkmodule_popup = function (response) {
          spDebuger.storeLog("BACKEND-URL: ", salespoplib_vars_obj.backend_url);
@@ -1323,6 +1339,11 @@
             setTimeout(function () {
                 collectionTimer(apiResponse.timerCollection, apiResponse.timerCollectionOff);
             }, 2000);
+        }
+
+        var notAllowedBlockSpecificPage = blockSpecificPage();
+        if (!notAllowedBlockSpecificPage) {
+            return false;
         }
          
          if (shouldStatsBeShown()) {
