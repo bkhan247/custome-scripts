@@ -1676,6 +1676,9 @@ scriptInjection("https://code.jquery.com/jquery-3.2.1.min.js", function () {
           '<style type="text/css"> .view-full-details a{color: #F2BCB8 !important} .quick-shop-addtocart button{background-color: #F2BCB8 !important; color: #fff !important;} .quickshop-quantity input{ border: 1px solid #F2BCB8 !important} .quantity-button.quantity-up{border-color: #F2BCB8 !important;} .quantity-button.quantity-down{border-color: #F2BCB8 !important;} </style>'
         );
     }
+    if (Shopify.shop == "bee-convenient.myshopify.com") {
+        $jq321("head").append('<style type="text/css">  .button-on-hover:hover{background-color: #F4F4F4 !important; color: #666 !important; visibility: visible !important;} .qview-button-container :not(.qview-button){ pointer-events: auto !important; } .quick-shop-addtocart button{background-color: #FFABAB !important; color: #fff !important;} </style>');
+    }
 
     function stockCountdown(responseStock) {
 
