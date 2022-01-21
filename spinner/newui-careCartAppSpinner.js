@@ -1111,6 +1111,18 @@
                                     }
                                 }
 
+                                if (Shopify.shop == 'enns-closet.myshopify.com') {
+                                    var thisStatus = checkStoreSpecificUrlCcSpinASale("https://www.ennbeauty.com/pages/spin-the-wheel");
+                                    //console.log('checkStoreSpecificUrlCcSpinASale Status: ' + thisStatus);
+                                    if (thisStatus) {
+                                        console.log('SAS Custom Page Matched for store: ' + Shopify.shop);
+                                    }
+                                    else {
+                                        console.log('SAS Custom Page NOT Matched for store: ' + Shopify.shop);
+                                        return;
+                                    }
+                                }
+
                                 if (Shopify.shop == 'little-miss-juliette.myshopify.com') {
                                     var thisStatus = checkStoreSpecificUrlCcSpinASale("https://www.littlemissjuliette.com/pages/spin-win");
                                     //console.log('checkStoreSpecificUrlCcSpinASale Status: ' + thisStatus);
